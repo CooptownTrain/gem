@@ -1,126 +1,115 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Megan's in Town — Karaoke Night</title><meta name="theme-color" content="#0a0512">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M3GAN IS IN TOWN — Megan's Karaoke Party</title>
+<meta name="theme-color" content="#1a0033">
+<meta property="og:title" content="M3GAN IS IN TOWN">
+<meta property="og:description" content="It's a karaoke party. Friday, July 31 · 7PM · The Cooper/Safer House.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root{ --bg:#0a0512; --pink:#ff2d95; --cyan:#22e0ff; --gold:#ffd24a; --ink:#fdf4ff; }
+  :root{ --pink:#ff2d95; --cyan:#22e0ff; --gold:#ffd24a; }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{min-height:100%}
-  body{
-    background:
-      radial-gradient(120% 80% at 50% -10%, #2a0f3d 0%, rgba(42,15,61,0) 55%),
-      radial-gradient(90% 60% at 50% 120%, #17123a 0%, rgba(23,18,58,0) 60%),
-      var(--bg);
-    color:var(--ink); font-family:"Trebuchet MS","Segoe UI",system-ui,-apple-system,sans-serif;
-    min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center;
-    padding:18px 18px 22px; text-align:center; -webkit-text-size-adjust:100%; overflow-x:hidden;
-  }
-  .shell{width:100%; max-width:440px; position:relative; z-index:2}
-  .shell > *{max-width:100%; overflow-wrap:break-word}
-  .eyebrow{letter-spacing:.34em; font-size:12px; font-weight:700; text-transform:uppercase; color:var(--cyan); text-shadow:0 0 12px rgba(34,224,255,.55); padding-left:.34em}
-  a{color:var(--cyan)}
+  body{background:#0a0610;font-family:'Barlow',system-ui,-apple-system,sans-serif;color:#fff;display:flex;justify-content:center;-webkit-text-size-adjust:100%}
+  .card{width:100%;max-width:460px;min-height:100svh;display:flex;flex-direction:column;position:relative;overflow:hidden;
+    background:linear-gradient(180deg,#1a0033 0%,#3a0d5c 38%,#ff2d95 116%)}
 
-  /* hero headline */
-  .h1{font-size:clamp(26px,6.8vw,36px); font-weight:900; letter-spacing:.01em; color:#fff; line-height:1.05; margin-top:8px;
-    text-shadow:0 0 6px rgba(255,255,255,.5), 0 0 26px rgba(255,45,149,.6)}
-  .h2{font-size:clamp(15px,4.2vw,19px); font-weight:700; color:var(--gold); margin-top:8px; text-shadow:0 0 14px rgba(255,210,74,.4)}
-  .karaoke{font-size:14px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:var(--pink); margin-top:8px; text-shadow:0 0 14px rgba(255,45,149,.5)}
+  /* image */
+  .hero{position:relative;width:100%;flex:0 0 42svh;background-image:url("doll.png");background-size:cover;background-position:center 26%}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 52%,rgba(26,0,51,.92))}
+  .titleblock{position:absolute;left:0;right:0;bottom:3%;z-index:2;text-align:center}
+  .title{font-weight:200;font-size:clamp(46px,14vw,60px);letter-spacing:.1em;color:#fff;text-shadow:0 2px 18px rgba(0,0,0,.75);line-height:1}
+  .isin{font-weight:300;font-size:clamp(20px,5.6vw,25px);letter-spacing:.2em;color:#fff;line-height:1;margin-top:6px;text-shadow:0 2px 12px rgba(0,0,0,.8)}
 
-  /* countdown (compact) */
-  .count{display:flex; gap:8px; margin:14px 0 4px; justify-content:center}
-  .unit{background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02)); border:1px solid rgba(255,45,149,.35);
-    border-radius:12px; padding:8px 3px 6px; flex:1 1 0; max-width:74px; box-shadow:0 0 18px rgba(255,45,149,.12)}
-  .num{font-size:clamp(22px,6.5vw,30px); font-weight:900; font-variant-numeric:tabular-nums; color:#fff; text-shadow:0 0 12px rgba(34,224,255,.5); line-height:1}
-  .lab{margin-top:5px; font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:var(--cyan); padding-left:.2em}
-  .partyMsg{display:none; margin-top:10px; font-size:clamp(20px,6vw,28px); font-weight:900; color:#fff; text-shadow:0 0 20px var(--pink)}
-  .party .count{display:none}.party .partyMsg{display:block}
+  /* bottom content — evenly spread vertically */
+  .content{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:space-between;align-items:center;
+    text-align:center;padding:16px 22px 18px;position:relative}
+  .grid7{position:absolute;left:-20%;right:-20%;bottom:0;height:62%;z-index:0;
+    background-image:linear-gradient(rgba(34,224,255,.32) 1px,transparent 1px),linear-gradient(90deg,rgba(34,224,255,.32) 1px,transparent 1px);
+    background-size:26px 26px;transform:perspective(240px) rotateX(62deg);transform-origin:bottom;opacity:.4}
+  .content>*{position:relative;z-index:2}
 
-  .when{margin-top:14px; font-size:clamp(15px,4.4vw,19px); font-weight:800; letter-spacing:.04em; color:#fff}
-  .when span{color:var(--pink)}
-  .where{font-size:13.5px; line-height:1.5; color:#e7d6f2; margin-top:6px}
-  .where b{color:var(--cyan); font-weight:800}
+  .tag{display:flex;flex-direction:column;gap:5px}
+  .sub{font-size:clamp(15px,4.4vw,18px);color:var(--gold);letter-spacing:.02em}
+  .kara{font-size:clamp(12px,3.6vw,14px);font-weight:500;letter-spacing:.2em;color:var(--cyan)}
 
-  /* buttons */
-  .btnrow{display:grid; grid-template-columns:1fr 1fr; gap:11px; margin-top:18px}
-  .btn{display:flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; text-align:center;
-    font-size:15px; font-weight:800; letter-spacing:.01em; line-height:1.15; color:#fff; padding:14px 10px; border-radius:14px;
-    min-height:54px; border:1px solid rgba(255,45,149,.4);
-    background:linear-gradient(180deg, rgba(255,45,149,.22), rgba(255,45,149,.08));
-    box-shadow:0 0 20px rgba(255,45,149,.12); transition:transform .08s ease}
+  .count{display:flex;gap:9px;justify-content:center}
+  .u{min-width:62px;padding:11px 5px;border-radius:13px;background:rgba(0,0,0,.34);border:1px solid rgba(34,224,255,.4)}
+  .num{font-size:clamp(26px,8vw,32px);font-weight:300;font-variant-numeric:tabular-nums;line-height:1}
+  .lab{font-size:9.5px;letter-spacing:.16em;opacity:.9;margin-top:5px}
+  .partyMsg{display:none;font-size:clamp(24px,7vw,32px);font-weight:400;letter-spacing:.06em;color:#fff}
+  .go .count{display:none}.go .partyMsg{display:block}
+
+  .venue{font-weight:300;font-size:clamp(24px,7vw,29px);line-height:1.06;letter-spacing:.04em;color:#fff}
+  .addr{font-size:clamp(13px,4vw,15px);opacity:.92;margin-top:2px}
+  .time{font-size:clamp(16px,4.8vw,19px);font-weight:300;letter-spacing:.03em;margin-top:3px;color:var(--gold)}
+  .time b{color:#fff;font-weight:500;white-space:nowrap}
+
+  .cta{width:100%;display:flex;flex-direction:column;gap:11px}
+  .ctarow{display:grid;grid-template-columns:1.4fr 1fr;gap:11px}
+  .btn{display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:15px;font-weight:600;color:#fff;
+    letter-spacing:.03em;padding:16px 8px;border-radius:13px;min-height:54px;background:var(--pink);
+    box-shadow:0 6px 16px rgba(255,45,149,.4);transition:transform .08s ease}
   .btn:active{transform:scale(.98)}
-  .btn.alt{border-color:rgba(34,224,255,.4); background:linear-gradient(180deg, rgba(34,224,255,.16), rgba(34,224,255,.05)); box-shadow:0 0 20px rgba(34,224,255,.1)}
-  .btn.full{margin-top:11px; width:100%}
-  .btn .em{font-size:19px}
+  .btn.alt{background:var(--cyan);color:#04222b}
+  .btn.ghost{background:rgba(0,0,0,.34);border:1px solid rgba(255,255,255,.4);box-shadow:none}
+  .btn.full{width:100%}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+  <div class="card" id="card">
+    <div class="hero"><div class="titleblock"><div class="title">M3GAN</div><div class="isin">IS IN TOWN</div></div></div>
+    <div class="content">
+      <div class="grid7"></div>
 
-  .invitelink{display:inline-block; margin-top:18px; font-size:14px; font-weight:700; color:#b9a9cf; text-decoration:none; border:1px solid rgba(255,255,255,.16); border-radius:999px; padding:9px 18px}
-  .invitelink:hover{color:#fff; border-color:var(--cyan)}
-  .topbar{text-align:left; margin-bottom:6px}
-  .topback{display:inline-flex; align-items:center; gap:6px; font-size:14px; font-weight:800; color:#fff; text-decoration:none;
-    border:1px solid rgba(34,224,255,.4); background:linear-gradient(180deg, rgba(34,224,255,.16), rgba(34,224,255,.05));
-    border-radius:999px; padding:9px 16px; min-height:40px}
-  .topback:active{transform:scale(.98)}
+      <div class="tag">
+        <div class="sub">AND YOU KNOW WHAT THAT M3ANS…</div>
+        <div class="kara">IT'S A KARAOK3 PARTY</div>
+      </div>
 
-  /* forms */
-  form{margin-top:20px; text-align:left; display:flex; flex-direction:column; gap:15px}
-  label{display:block; font-size:14px; font-weight:700; color:var(--cyan); margin-bottom:7px; letter-spacing:.02em}
-  .req{color:var(--pink)}
-  input, textarea{width:100%; font-size:16px; font-family:inherit; color:#fff; padding:14px; border-radius:12px;
-    border:1px solid rgba(255,255,255,.18); background:rgba(255,255,255,.06); outline:none}
-  input:focus, textarea:focus{border-color:var(--pink); box-shadow:0 0 0 3px rgba(255,45,149,.18)}
-  input::placeholder, textarea::placeholder{color:#8f82a6}
-  textarea{min-height:84px; resize:vertical}
-  .submit{margin-top:4px; font-size:18px; font-weight:900; letter-spacing:.03em; color:#0a0512; background:linear-gradient(180deg,#ffd24a,#ff9e2d);
-    border:none; border-radius:14px; padding:17px; min-height:56px; cursor:pointer; box-shadow:0 8px 22px rgba(255,158,45,.3)}
-  .submit:active{transform:scale(.99)}
-  .lead{font-size:14.5px; color:#cbbce0; margin-top:8px; line-height:1.5}
-  .pagetitle{font-size:clamp(28px,8vw,40px); font-weight:900; color:#fff; line-height:1; margin-top:4px; text-shadow:0 0 20px rgba(255,45,149,.4)}
-  .card2{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.09); border-radius:18px; padding:20px 18px 22px; margin-top:16px}
-  .catbtn{display:inline-flex; align-items:center; gap:8px; margin-top:12px; text-decoration:none; font-size:15px; font-weight:800; color:#fff;
-    border:1px solid rgba(34,224,255,.45); background:linear-gradient(180deg, rgba(34,224,255,.16), rgba(34,224,255,.05));
-    border-radius:12px; padding:12px 18px; min-height:48px; box-shadow:0 0 18px rgba(34,224,255,.1)}
-  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
-</style></head>
-<body><div class="shell">
-  <div class="eyebrow">🎤 You're invited</div>
-  <div class="h1">Megan is in town.</div>
-  <div class="h2">And you know what that means…</div>
-  <svg viewBox="0 0 64 132" width="52" style="filter:drop-shadow(0 0 18px rgba(255,45,149,.5));margin:10px 0 2px" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <defs><linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8ac4"/><stop offset="1" stop-color="#ff2d95"/></linearGradient>
-  <linearGradient id="st" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9e9ef"/><stop offset="1" stop-color="#9aa0b5"/></linearGradient></defs>
-  <rect x="27" y="70" width="10" height="40" rx="5" fill="url(#st)"/><path d="M14 96 a18 18 0 0 0 36 0" stroke="#c9cede" stroke-width="4" fill="none"/>
-  <rect x="20" y="108" width="24" height="8" rx="4" fill="#c9cede"/><rect x="16" y="4" width="32" height="74" rx="16" fill="url(#mg)"/>
-  <g stroke="rgba(0,0,0,.25)" stroke-width="2"><line x1="22" y1="16" x2="42" y2="16"/><line x1="22" y1="24" x2="42" y2="24"/><line x1="22" y1="32" x2="42" y2="32"/><line x1="22" y1="40" x2="42" y2="40"/></g>
-  <ellipse cx="26" cy="20" rx="4" ry="8" fill="rgba(255,255,255,.55)"/></svg>
-  <div class="karaoke">It's a karaoke party</div>
+      <div class="count" id="count" role="timer">
+        <div class="u"><div class="num" id="d">--</div><div class="lab">DAYS</div></div>
+        <div class="u"><div class="num" id="h">--</div><div class="lab">HRS</div></div>
+        <div class="u"><div class="num" id="m">--</div><div class="lab">MIN</div></div>
+        <div class="u"><div class="num" id="s">--</div><div class="lab">S3C</div></div>
+      </div>
+      <div class="partyMsg" id="partyMsg">🎤 IT'S SHOWTIM3 🎤</div>
 
-  <div class="count" id="count">
-    <div class="unit"><div class="num" id="d">--</div><div class="lab">Days</div></div>
-    <div class="unit"><div class="num" id="h">--</div><div class="lab">Hrs</div></div>
-    <div class="unit"><div class="num" id="m">--</div><div class="lab">Min</div></div>
-    <div class="unit"><div class="num" id="s">--</div><div class="lab">Sec</div></div>
+      <div class="deets">
+        <div class="venue">TH3 COOP3R/SAF3R HOUS3</div>
+        <div class="addr">16 W3ST COLMAR CIRCL3</div>
+        <div class="time">FRIDAY, JULY 31 · <b>7PM 'TIL DAWN</b></div>
+      </div>
+
+      <div class="cta">
+        <div class="ctarow">
+          <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdXw6pt8I-sNoj49kcVM5RFvls1h5ORJaTm28Fd5aVsHLuYmg/viewform" target="_blank" rel="noopener noreferrer">SIGN UP TO SING</a>
+          <a class="btn alt" href="catalog.pdf" target="_blank" rel="noopener noreferrer">CATALOG</a>
+        </div>
+        <a class="btn ghost full" href="rsvp.html">RSVP — WHO'S COMING</a>
+      </div>
+    </div>
   </div>
-  <div class="partyMsg" id="partyMsg">🎤 IT'S SHOWTIME 🎤</div>
 
-  <div class="when">FRIDAY · <span>JULY 31</span> · 7PM</div>
-  <div class="where"><b>The Cooper/Safer House</b> · 16 West Colmar Circle<br>7PM 'til the break of dawn</div>
-
-  <div class="btnrow">
-    <a class="btn" href="sing.html"><span class="em">🎤</span> Sign up to sing</a>
-    <a class="btn alt" href="catalog.pdf" target="_blank" rel="noopener noreferrer"><span class="em">🎵</span> Song catalog</a>
-  </div>
-  <a class="btn alt full" href="rsvp.html"><span class="em">💌</span> RSVP — who's coming</a>
-
-  <script>
-    var TARGET = new Date('2026-07-31T19:00:00-04:00').getTime();
-    var d=document.getElementById('d'),h=document.getElementById('h'),m=document.getElementById('m'),s=document.getElementById('s');
-    function pad(n){return (n<10?'0':'')+n;}
-    var shell=document.querySelector('.shell'), done=false;
-    function tick(){
-      var diff=TARGET-Date.now();
-      if(diff<=0){ if(!done){done=true; shell.classList.add('party');} return; }
-      d.textContent=Math.floor(diff/86400000);
-      h.textContent=pad(Math.floor(diff%86400000/3600000));
-      m.textContent=pad(Math.floor(diff%3600000/60000));
-      s.textContent=pad(Math.floor(diff%60000/1000));
-    }
-    tick(); setInterval(tick,1000);
-  </script></div></body></html>
+<script>
+  var TARGET = new Date('2026-07-31T19:00:00-04:00').getTime();
+  var d=document.getElementById('d'),h=document.getElementById('h'),m=document.getElementById('m'),s=document.getElementById('s'),card=document.getElementById('card');
+  function pad(n){return (n<10?'0':'')+n;}
+  var done=false;
+  function tick(){
+    var diff=TARGET-Date.now();
+    if(diff<=0){ if(!done){done=true;card.classList.add('go');} return; }
+    d.textContent=Math.floor(diff/86400000);
+    h.textContent=pad(Math.floor(diff%86400000/3600000));
+    m.textContent=pad(Math.floor(diff%3600000/60000));
+    s.textContent=pad(Math.floor(diff%60000/1000));
+  }
+  tick(); setInterval(tick,1000);
+</script>
+</body>
+</html>
