@@ -3,101 +3,84 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Megan is in Town — Karaoke Party</title>
-<meta name="theme-color" content="#a12ad0">
-<meta property="og:title" content="Megan is in town">
+<title>M3GAN IS IN TOWN — Megan's Karaoke Party</title>
+<meta name="theme-color" content="#8a2be2">
+<meta property="og:title" content="M3GAN IS IN TOWN">
 <meta property="og:description" content="It's a karaoke party. Friday, July 31 · 7:30PM · The Cooper/Safer House.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@200;300;400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
 <style>
   :root{ --gold:#ffd24a; }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{min-height:100%}
-  body{background:#7b2ff7;font-family:'Poppins',system-ui,-apple-system,sans-serif;color:#fff;display:flex;justify-content:center;-webkit-text-size-adjust:100%}
-  .card{width:100%;max-width:460px;min-height:100svh;position:relative;overflow:hidden;
-    background:linear-gradient(150deg,#ff2d95 0%,#8a2be2 46%,#22c9ff 100%);
-    display:flex;flex-direction:column}
-  /* soft decor blobs */
-  .blob{position:absolute;border-radius:50%;z-index:0;filter:blur(1px);opacity:.5}
-  .b1{width:230px;height:230px;background:radial-gradient(circle,#ff7ac1,transparent 70%);top:-40px;right:-40px}
-  .b2{width:200px;height:200px;background:radial-gradient(circle,#5ce0ff,transparent 70%);bottom:60px;left:-60px}
-  .confetti i{position:absolute;width:9px;height:9px;border-radius:2px;z-index:1;opacity:.9}
+  body{background:#8a2be2;font-family:'Barlow',system-ui,-apple-system,sans-serif;color:#fff;display:flex;justify-content:center;-webkit-text-size-adjust:100%}
+  .card{width:100%;max-width:460px;min-height:100svh;position:relative;overflow:hidden;display:flex;flex-direction:column;
+    background:linear-gradient(150deg,#ff2d95 0%,#8a2be2 46%,#22c9ff 100%)}
+  .blob{position:absolute;border-radius:50%;z-index:1;filter:blur(1px);opacity:.42}
+  .b1{width:190px;height:190px;background:radial-gradient(circle,#ff7ac1,transparent 70%);top:46%;right:-46px}
+  .b2{width:180px;height:180px;background:radial-gradient(circle,#5ce0ff,transparent 70%);bottom:44px;left:-50px}
 
-  .content{position:relative;z-index:3;flex:1;display:flex;flex-direction:column;align-items:center;
-    text-align:center;padding:26px 22px 22px;gap:0}
-  .sp{flex:1 1 0;min-height:6px;max-height:40px}
+  /* big image hero */
+  .hero{position:relative;width:100%;flex:0 0 37svh;background-image:url("doll.png");background-size:cover;background-position:center 20%;z-index:2}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,transparent 62%,rgba(122,47,247,.5))}
 
-  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.24em;color:#fff}
-  .h1{font-weight:800;font-size:clamp(38px,11vw,52px);line-height:1;margin-top:6px;text-shadow:2px 3px 0 rgba(0,0,0,.18)}
-  .h2{font-weight:600;font-size:clamp(16px,4.6vw,19px);color:#0a0512;margin-top:8px}
-  .kara{font-weight:700;font-size:clamp(13px,3.8vw,15px);letter-spacing:.12em;color:#fff;margin-top:6px}
+  .content{position:relative;z-index:3;flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;text-align:center;padding:14px 20px 20px}
+  .sp{flex:1 1 0;min-height:4px;max-height:26px}
 
-  .mic{margin:2px 0}
-  .mic img{width:clamp(74px,21vw,100px);height:auto;display:block;filter:drop-shadow(0 0 10px rgba(255,255,255,.45)) drop-shadow(0 4px 8px rgba(0,0,0,.3))}
+  .eyebrow{font-family:'Barlow';font-size:11px;font-weight:600;letter-spacing:.3em;text-shadow:0 1px 6px rgba(0,0,0,.4)}
+  .mtitle{font-weight:200;font-size:clamp(40px,13vw,50px);line-height:1;letter-spacing:.1em;margin-top:3px;text-shadow:0 2px 10px rgba(0,0,0,.55)}
+  .msub{font-weight:300;font-size:clamp(28px,8.6vw,34px);line-height:1.05;letter-spacing:.14em;margin-top:3px;text-shadow:0 2px 10px rgba(0,0,0,.55)}
+  .h2{font-weight:400;font-size:clamp(13px,4vw,15px);color:#ffe9a8;letter-spacing:.04em;margin-top:6px;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+  .kara{font-weight:500;font-size:clamp(20px,6.2vw,24px);letter-spacing:.1em;margin-top:6px;text-shadow:0 1px 6px rgba(0,0,0,.5)}
 
-  .venuecard{width:100%;background:rgba(12,6,26,.42);border:1px solid rgba(255,255,255,.35);border-radius:18px;
-    padding:16px 16px;backdrop-filter:blur(4px)}
-  .venue{font-weight:800;font-size:clamp(23px,6.6vw,28px);line-height:1.05}
-  .addr{font-weight:500;font-size:clamp(14px,4.2vw,16px);margin-top:3px;opacity:.95}
-  .time{font-weight:700;font-size:clamp(17px,5vw,20px);color:var(--gold);margin-top:8px;line-height:1.25}
+  .venuecard{width:100%;background:rgba(12,6,26,.46);border:1px solid rgba(255,255,255,.35);border-radius:18px;padding:13px 16px;backdrop-filter:blur(4px)}
+  .venue{font-weight:300;font-size:clamp(22px,6.4vw,25px);line-height:1.06;letter-spacing:.04em}
+  .addr{font-weight:500;font-size:clamp(13px,4vw,15px);margin-top:2px;opacity:.95}
+  .time{font-weight:300;font-size:clamp(16px,4.8vw,19px);color:var(--gold);letter-spacing:.03em;margin-top:6px}
 
   .count{display:flex;gap:8px;justify-content:center}
-  .u{min-width:58px;padding:9px 4px;border-radius:13px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.45)}
-  .num{font-size:clamp(24px,7vw,30px);font-weight:800;font-variant-numeric:tabular-nums;line-height:1}
-  .lab{font-size:9px;letter-spacing:.14em;font-weight:600;opacity:.9;margin-top:5px}
-  .partyMsg{display:none;font-size:clamp(22px,6.5vw,30px);font-weight:800}
+  .u{min-width:56px;padding:9px 4px;border-radius:12px;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.45)}
+  .num{font-weight:300;font-size:clamp(23px,7vw,28px);font-variant-numeric:tabular-nums;line-height:1}
+  .lab{font-family:'Barlow';font-size:8.5px;letter-spacing:.14em;font-weight:500;opacity:.9;margin-top:5px}
+  .partyMsg{display:none;font-weight:300;font-size:clamp(24px,7vw,32px);letter-spacing:.06em}
   .go .count{display:none}.go .partyMsg{display:block}
 
-  .cta{width:100%;display:flex;flex-direction:column;gap:10px}
-  .ctarow{display:grid;grid-template-columns:1.5fr 1fr;gap:10px}
-  .btn{display:flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;font-size:15px;font-weight:700;
-    padding:15px 8px;border-radius:14px;min-height:52px;transition:transform .08s ease}
-  .btn:active{transform:scale(.98)}
-  .btn.dark{background:#0c0618;color:#fff}
-  .btn.light{background:#fff;color:#0c0618}
-  .btn.full{width:100%}
+  .cat{width:100%;display:flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;font-family:'Poppins';font-size:15px;font-weight:700;
+    padding:15px 8px;border-radius:14px;min-height:52px;background:#fff;color:#0c0618;box-shadow:0 6px 16px rgba(0,0,0,.22);transition:transform .08s ease}
+  .cat:active{transform:scale(.98)}
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
   <div class="card" id="card">
+    <div class="hero"></div>
     <div class="blob b1"></div><div class="blob b2"></div>
-    <div class="confetti" id="cf"></div>
-
     <div class="content">
-      <div class="eyebrow">🎤 YOU'RE INVITED</div>
-      <div class="h1">Megan is in town</div>
-      <div class="h2">and you know what that means…</div>
-      <div class="kara">IT'S A KARAOKE PARTY</div>
+      <div class="eyebrow">🎤 YOU'R3 INVIT3D</div>
+      <div class="mtitle">M3GAN</div>
+      <div class="msub">IS IN TOWN</div>
+      <div class="h2">AND YOU KNOW WHAT THAT M3ANS…</div>
+      <div class="kara">IT'S A KARAOK3 PARTY</div>
 
       <div class="sp"></div>
-
-      <div class="mic"><img src="mic.png" alt="microphone"></div>
-
-      <div class="sp"></div>
-
       <div class="venuecard">
-        <div class="venue">The Cooper/Safer House</div>
-        <div class="addr">16 West Colmar Circle</div>
-        <div class="time">Friday, July 31 · 7:30PM</div>
+        <div class="venue">TH3 COOP3R/SAF3R HOUS3</div>
+        <div class="addr">16 W3ST COLMAR CIRCL3</div>
+        <div class="time">FRIDAY, JULY 31 · 7:30PM</div>
       </div>
 
       <div class="sp"></div>
-
       <div class="count" id="count" role="timer">
         <div class="u"><div class="num" id="d">--</div><div class="lab">DAYS</div></div>
         <div class="u"><div class="num" id="h">--</div><div class="lab">HRS</div></div>
         <div class="u"><div class="num" id="m">--</div><div class="lab">MIN</div></div>
-        <div class="u"><div class="num" id="s">--</div><div class="lab">SEC</div></div>
+        <div class="u"><div class="num" id="s">--</div><div class="lab">S3C</div></div>
       </div>
-      <div class="partyMsg" id="partyMsg">🎤 IT'S SHOWTIME 🎤</div>
+      <div class="partyMsg" id="partyMsg">🎤 IT'S SHOWTIM3 🎤</div>
 
       <div class="sp"></div>
-
-      <div class="cta">
-        <a class="btn light full" href="catalog.pdf" target="_blank" rel="noopener noreferrer">🎵 Catalog</a>
-      </div>
+      <a class="cat" href="catalog.pdf" target="_blank" rel="noopener noreferrer">🎵 CATALOG</a>
     </div>
   </div>
 
@@ -115,10 +98,6 @@
     s.textContent=pad(Math.floor(diff%60000/1000));
   }
   tick(); setInterval(tick,1000);
-  // confetti
-  var cols=['#ffd24a','#ff2d95','#22c9ff','#38e29d','#ffffff'], cf=document.getElementById('cf'), html='';
-  for(var i=0;i<14;i++){ html+='<i style="left:'+((i*37+7)%100)+'%;top:'+((i*53+5)%94)+'%;background:'+cols[i%cols.length]+';transform:rotate('+((i*41)%360)+'deg)"></i>'; }
-  cf.innerHTML=html;
 </script>
 </body>
 </html>
