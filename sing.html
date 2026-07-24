@@ -1,0 +1,89 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sign up to sing — GEM</title><meta name="theme-color" content="#0a0512">
+<style>
+  :root{ --bg:#0a0512; --pink:#ff2d95; --cyan:#22e0ff; --gold:#ffd24a; --ink:#fdf4ff; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{min-height:100%}
+  body{
+    background:
+      radial-gradient(120% 80% at 50% -10%, #2a0f3d 0%, rgba(42,15,61,0) 55%),
+      radial-gradient(90% 60% at 50% 120%, #17123a 0%, rgba(23,18,58,0) 60%),
+      var(--bg);
+    color:var(--ink); font-family:"Trebuchet MS","Segoe UI",system-ui,-apple-system,sans-serif;
+    min-height:100svh; display:flex; flex-direction:column; align-items:center;
+    padding:34px 20px 54px; text-align:center; -webkit-text-size-adjust:100%;
+  }
+  .shell{width:100%; max-width:520px; position:relative; z-index:2}
+  .eyebrow{letter-spacing:.42em; font-size:12px; font-weight:700; text-transform:uppercase; color:var(--cyan); text-shadow:0 0 12px rgba(34,224,255,.6); padding-left:.42em}
+  .gem{font-size:clamp(66px,22vw,120px); font-weight:900; letter-spacing:.04em; color:#fff; line-height:.9; margin-top:6px;
+    text-shadow:0 0 6px #fff, 0 0 22px var(--pink), 0 0 46px rgba(255,45,149,.7)}
+  .gag{font-size:15px; color:#e7d6f2; margin-top:8px}.gag b{color:var(--gold)}
+  a{color:var(--cyan)}
+  .btns{display:flex; flex-direction:column; gap:14px; margin-top:30px}
+  .btn{display:flex; align-items:center; justify-content:center; gap:10px; text-decoration:none;
+    font-size:18px; font-weight:800; letter-spacing:.02em; color:#fff; padding:18px 20px; border-radius:16px;
+    min-height:58px; border:1px solid rgba(255,45,149,.4);
+    background:linear-gradient(180deg, rgba(255,45,149,.22), rgba(255,45,149,.08));
+    box-shadow:0 0 22px rgba(255,45,149,.14); transition:transform .08s ease}
+  .btn:active{transform:scale(.98)}
+  .btn.alt{border-color:rgba(34,224,255,.4); background:linear-gradient(180deg, rgba(34,224,255,.16), rgba(34,224,255,.05)); box-shadow:0 0 22px rgba(34,224,255,.12)}
+  .btn .em{font-size:22px}
+  .back{display:inline-block; margin-top:26px; font-size:14px; color:#b9a9cf; text-decoration:none}
+  .back:hover{color:#fff}
+
+  /* forms */
+  form{margin-top:24px; text-align:left; display:flex; flex-direction:column; gap:16px}
+  label{display:block; font-size:14px; font-weight:700; color:var(--cyan); margin-bottom:7px; letter-spacing:.02em}
+  .req{color:var(--pink)}
+  input, textarea{width:100%; font-size:16px; font-family:inherit; color:#fff; padding:14px 14px; border-radius:12px;
+    border:1px solid rgba(255,255,255,.18); background:rgba(255,255,255,.06); outline:none}
+  input:focus, textarea:focus{border-color:var(--pink); box-shadow:0 0 0 3px rgba(255,45,149,.18)}
+  input::placeholder, textarea::placeholder{color:#8f82a6}
+  textarea{min-height:88px; resize:vertical}
+  .submit{margin-top:6px; font-size:18px; font-weight:900; letter-spacing:.03em; color:#0a0512; background:linear-gradient(180deg,#ffd24a,#ff9e2d);
+    border:none; border-radius:14px; padding:18px; min-height:58px; cursor:pointer; box-shadow:0 8px 22px rgba(255,158,45,.3)}
+  .submit:active{transform:scale(.99)}
+  .lead{font-size:15px; color:#cbbce0; margin-top:8px; line-height:1.5}
+  .pagetitle{font-size:clamp(30px,9vw,44px); font-weight:900; color:#fff; line-height:1; margin-top:4px; text-shadow:0 0 20px rgba(255,45,149,.4)}
+  .foot-note{margin-top:22px; font-size:12px; color:#7d6f93; line-height:1.5}
+  .card2{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.09); border-radius:18px; padding:22px 20px 24px; margin-top:20px}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></head>
+<body><div class="shell">
+  <div class="eyebrow">GEM · Aug 1</div>
+  <div class="pagetitle">Sign up to sing 🎤</div>
+  <div class="lead">Claim your song(s). We'll have them ready in the queue on the night.<br>
+    Not sure what's available? <a href="https://www.karafun.com/karaoke-song-list.html" target="_blank" rel="noopener noreferrer">Browse the KaraFun song list →</a></div>
+  <div class="card2">
+  <form action="https://formsubmit.co/cooper18c@gmail.com" method="POST">
+    
+    <input type="hidden" name="_subject" value="🎤 New GEM song sign-up">
+    <input type="hidden" name="_cc" value="jsaferpr@gmail.com">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://cooptowntrain.github.io/gem/thanks.html">
+    <div>
+      <label>Your name <span class="req">*</span></label>
+      <input type="text" name="Singer name" placeholder="e.g. Jamie Rivera" required>
+    </div>
+    <div>
+      <label>Song #1 — title <span class="req">*</span></label>
+      <input type="text" name="Song 1 title" placeholder="Don't Stop Believin'" required>
+    </div>
+    <div>
+      <label>Song #1 — artist</label>
+      <input type="text" name="Song 1 artist" placeholder="Journey">
+    </div>
+    <div>
+      <label>Song #2 — title (optional)</label>
+      <input type="text" name="Song 2 title" placeholder="A backup, just in case">
+    </div>
+    <div>
+      <label>Song #2 — artist (optional)</label>
+      <input type="text" name="Song 2 artist" placeholder="">
+    </div>
+    <button class="submit" type="submit">Add me to the mic 🎤</button>
+  </form>
+  </div>
+  <a class="back" href="index.html">← back to the countdown</a></div></body></html>
