@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>GEM — Megan's Party</title><meta name="theme-color" content="#0a0512">
+<title>Megan's in Town — Karaoke Night</title><meta name="theme-color" content="#0a0512">
 <style>
   :root{ --bg:#0a0512; --pink:#ff2d95; --cyan:#22e0ff; --gold:#ffd24a; --ink:#fdf4ff; }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -11,88 +11,102 @@
       radial-gradient(90% 60% at 50% 120%, #17123a 0%, rgba(23,18,58,0) 60%),
       var(--bg);
     color:var(--ink); font-family:"Trebuchet MS","Segoe UI",system-ui,-apple-system,sans-serif;
-    min-height:100svh; display:flex; flex-direction:column; align-items:center;
-    padding:34px 20px 54px; text-align:center; -webkit-text-size-adjust:100%;
+    min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:18px 18px 22px; text-align:center; -webkit-text-size-adjust:100%; overflow-x:hidden;
   }
-  .shell{width:100%; max-width:520px; position:relative; z-index:2}
-  .eyebrow{letter-spacing:.42em; font-size:12px; font-weight:700; text-transform:uppercase; color:var(--cyan); text-shadow:0 0 12px rgba(34,224,255,.6); padding-left:.42em}
-  .gem{font-size:clamp(66px,22vw,120px); font-weight:900; letter-spacing:.04em; color:#fff; line-height:.9; margin-top:6px;
-    text-shadow:0 0 6px #fff, 0 0 22px var(--pink), 0 0 46px rgba(255,45,149,.7)}
-  .gag{font-size:15px; color:#e7d6f2; margin-top:8px}.gag b{color:var(--gold)}
+  .shell{width:100%; max-width:440px; position:relative; z-index:2}
+  .shell > *{max-width:100%; overflow-wrap:break-word}
+  .eyebrow{letter-spacing:.34em; font-size:12px; font-weight:700; text-transform:uppercase; color:var(--cyan); text-shadow:0 0 12px rgba(34,224,255,.55); padding-left:.34em}
   a{color:var(--cyan)}
-  .btns{display:flex; flex-direction:column; gap:14px; margin-top:30px}
-  .btn{display:flex; align-items:center; justify-content:center; gap:10px; text-decoration:none;
-    font-size:18px; font-weight:800; letter-spacing:.02em; color:#fff; padding:18px 20px; border-radius:16px;
-    min-height:58px; border:1px solid rgba(255,45,149,.4);
+
+  /* hero headline */
+  .h1{font-size:clamp(26px,6.8vw,36px); font-weight:900; letter-spacing:.01em; color:#fff; line-height:1.05; margin-top:8px;
+    text-shadow:0 0 6px rgba(255,255,255,.5), 0 0 26px rgba(255,45,149,.6)}
+  .h2{font-size:clamp(15px,4.2vw,19px); font-weight:700; color:var(--gold); margin-top:8px; text-shadow:0 0 14px rgba(255,210,74,.4)}
+  .karaoke{font-size:14px; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:var(--pink); margin-top:8px; text-shadow:0 0 14px rgba(255,45,149,.5)}
+
+  /* countdown (compact) */
+  .count{display:flex; gap:8px; margin:14px 0 4px; justify-content:center}
+  .unit{background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02)); border:1px solid rgba(255,45,149,.35);
+    border-radius:12px; padding:8px 3px 6px; flex:1 1 0; max-width:74px; box-shadow:0 0 18px rgba(255,45,149,.12)}
+  .num{font-size:clamp(22px,6.5vw,30px); font-weight:900; font-variant-numeric:tabular-nums; color:#fff; text-shadow:0 0 12px rgba(34,224,255,.5); line-height:1}
+  .lab{margin-top:5px; font-size:9px; letter-spacing:.2em; text-transform:uppercase; color:var(--cyan); padding-left:.2em}
+  .partyMsg{display:none; margin-top:10px; font-size:clamp(20px,6vw,28px); font-weight:900; color:#fff; text-shadow:0 0 20px var(--pink)}
+  .party .count{display:none}.party .partyMsg{display:block}
+
+  .when{margin-top:14px; font-size:clamp(15px,4.4vw,19px); font-weight:800; letter-spacing:.04em; color:#fff}
+  .when span{color:var(--pink)}
+  .where{font-size:13.5px; line-height:1.5; color:#e7d6f2; margin-top:6px}
+  .where b{color:var(--cyan); font-weight:800}
+
+  /* buttons */
+  .btnrow{display:grid; grid-template-columns:1fr 1fr; gap:11px; margin-top:18px}
+  .btn{display:flex; align-items:center; justify-content:center; gap:8px; text-decoration:none; text-align:center;
+    font-size:15px; font-weight:800; letter-spacing:.01em; line-height:1.15; color:#fff; padding:14px 10px; border-radius:14px;
+    min-height:54px; border:1px solid rgba(255,45,149,.4);
     background:linear-gradient(180deg, rgba(255,45,149,.22), rgba(255,45,149,.08));
-    box-shadow:0 0 22px rgba(255,45,149,.14); transition:transform .08s ease}
+    box-shadow:0 0 20px rgba(255,45,149,.12); transition:transform .08s ease}
   .btn:active{transform:scale(.98)}
-  .btn.alt{border-color:rgba(34,224,255,.4); background:linear-gradient(180deg, rgba(34,224,255,.16), rgba(34,224,255,.05)); box-shadow:0 0 22px rgba(34,224,255,.12)}
-  .btn .em{font-size:22px}
-  .back{display:inline-block; margin-top:26px; font-size:14px; color:#b9a9cf; text-decoration:none}
-  .back:hover{color:#fff}
+  .btn.alt{border-color:rgba(34,224,255,.4); background:linear-gradient(180deg, rgba(34,224,255,.16), rgba(34,224,255,.05)); box-shadow:0 0 20px rgba(34,224,255,.1)}
+  .btn.full{margin-top:11px; width:100%}
+  .btn .em{font-size:19px}
+
+  .invitelink{display:inline-block; margin-top:18px; font-size:14px; font-weight:700; color:#b9a9cf; text-decoration:none; border:1px solid rgba(255,255,255,.16); border-radius:999px; padding:9px 18px}
+  .invitelink:hover{color:#fff; border-color:var(--cyan)}
 
   /* forms */
-  form{margin-top:24px; text-align:left; display:flex; flex-direction:column; gap:16px}
+  form{margin-top:20px; text-align:left; display:flex; flex-direction:column; gap:15px}
   label{display:block; font-size:14px; font-weight:700; color:var(--cyan); margin-bottom:7px; letter-spacing:.02em}
   .req{color:var(--pink)}
-  input, textarea{width:100%; font-size:16px; font-family:inherit; color:#fff; padding:14px 14px; border-radius:12px;
+  input, textarea{width:100%; font-size:16px; font-family:inherit; color:#fff; padding:14px; border-radius:12px;
     border:1px solid rgba(255,255,255,.18); background:rgba(255,255,255,.06); outline:none}
   input:focus, textarea:focus{border-color:var(--pink); box-shadow:0 0 0 3px rgba(255,45,149,.18)}
   input::placeholder, textarea::placeholder{color:#8f82a6}
-  textarea{min-height:88px; resize:vertical}
-  .submit{margin-top:6px; font-size:18px; font-weight:900; letter-spacing:.03em; color:#0a0512; background:linear-gradient(180deg,#ffd24a,#ff9e2d);
-    border:none; border-radius:14px; padding:18px; min-height:58px; cursor:pointer; box-shadow:0 8px 22px rgba(255,158,45,.3)}
+  textarea{min-height:84px; resize:vertical}
+  .submit{margin-top:4px; font-size:18px; font-weight:900; letter-spacing:.03em; color:#0a0512; background:linear-gradient(180deg,#ffd24a,#ff9e2d);
+    border:none; border-radius:14px; padding:17px; min-height:56px; cursor:pointer; box-shadow:0 8px 22px rgba(255,158,45,.3)}
   .submit:active{transform:scale(.99)}
-  .lead{font-size:15px; color:#cbbce0; margin-top:8px; line-height:1.5}
-  .pagetitle{font-size:clamp(30px,9vw,44px); font-weight:900; color:#fff; line-height:1; margin-top:4px; text-shadow:0 0 20px rgba(255,45,149,.4)}
-  .foot-note{margin-top:22px; font-size:12px; color:#7d6f93; line-height:1.5}
-  .card2{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.09); border-radius:18px; padding:22px 20px 24px; margin-top:20px}
-  .where{font-size:15px; line-height:1.55; color:#e7d6f2; margin-top:12px}
-  .where b{color:var(--cyan); font-weight:800}
-  .where .maps{display:inline-block; margin-top:8px; font-size:13px; color:var(--cyan); text-decoration:none; border:1px solid rgba(34,224,255,.4); border-radius:999px; padding:7px 14px}
+  .lead{font-size:14.5px; color:#cbbce0; margin-top:8px; line-height:1.5}
+  .pagetitle{font-size:clamp(28px,8vw,40px); font-weight:900; color:#fff; line-height:1; margin-top:4px; text-shadow:0 0 20px rgba(255,45,149,.4)}
+  .card2{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.09); border-radius:18px; padding:20px 18px 22px; margin-top:16px}
+  .catbtn{display:inline-flex; align-items:center; gap:8px; margin-top:12px; text-decoration:none; font-size:15px; font-weight:800; color:#fff;
+    border:1px solid rgba(34,224,255,.45); background:linear-gradient(180deg, rgba(34,224,255,.16), rgba(34,224,255,.05));
+    border-radius:12px; padding:12px 18px; min-height:48px; box-shadow:0 0 18px rgba(34,224,255,.1)}
   @media (prefers-reduced-motion:reduce){*{animation:none!important}}
-</style><style>
-  .count{display:flex; gap:9px; margin:20px 0 6px; justify-content:center}
-  .unit{background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02)); border:1px solid rgba(255,45,149,.35);
-    border-radius:14px; padding:12px 4px 8px; flex:1 1 0; max-width:84px; box-shadow:0 0 20px rgba(255,45,149,.14)}
-  .num{font-size:clamp(26px,8vw,40px); font-weight:900; font-variant-numeric:tabular-nums; color:#fff; text-shadow:0 0 14px rgba(34,224,255,.5); line-height:1}
-  .lab{margin-top:7px; font-size:10px; letter-spacing:.24em; text-transform:uppercase; color:var(--cyan); padding-left:.24em}
-  .when{margin-top:20px; font-size:clamp(16px,4.6vw,20px); font-weight:800; letter-spacing:.05em; color:#fff}
-  .when span{color:var(--pink)}
-  .partyMsg{display:none; margin-top:14px; font-size:clamp(22px,7vw,32px); font-weight:900; color:#fff; text-shadow:0 0 20px var(--pink)}
-  .party .count{display:none}.party .partyMsg{display:block}
 </style></head>
 <body><div class="shell">
-  <div class="eyebrow">You're invited</div>
-  <div class="gem">GEM</div>
-  <div class="gag">that's <b>MEG</b>, spelled backwards 🪞 &nbsp;It's Megan's party.</div>
-  <svg viewBox="0 0 64 132" width="72" style="filter:drop-shadow(0 0 20px rgba(255,45,149,.5));margin:16px 0 2px" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <div class="eyebrow">🎤 You're invited</div>
+  <div class="h1">Megan is in town.</div>
+  <div class="h2">And you know what that means…</div>
+  <svg viewBox="0 0 64 132" width="52" style="filter:drop-shadow(0 0 18px rgba(255,45,149,.5));margin:10px 0 2px" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
   <defs><linearGradient id="mg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8ac4"/><stop offset="1" stop-color="#ff2d95"/></linearGradient>
   <linearGradient id="st" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9e9ef"/><stop offset="1" stop-color="#9aa0b5"/></linearGradient></defs>
   <rect x="27" y="70" width="10" height="40" rx="5" fill="url(#st)"/><path d="M14 96 a18 18 0 0 0 36 0" stroke="#c9cede" stroke-width="4" fill="none"/>
   <rect x="20" y="108" width="24" height="8" rx="4" fill="#c9cede"/><rect x="16" y="4" width="32" height="74" rx="16" fill="url(#mg)"/>
   <g stroke="rgba(0,0,0,.25)" stroke-width="2"><line x1="22" y1="16" x2="42" y2="16"/><line x1="22" y1="24" x2="42" y2="24"/><line x1="22" y1="32" x2="42" y2="32"/><line x1="22" y1="40" x2="42" y2="40"/></g>
   <ellipse cx="26" cy="20" rx="4" ry="8" fill="rgba(255,255,255,.55)"/></svg>
+  <div class="karaoke">It's a karaoke party</div>
+
   <div class="count" id="count">
     <div class="unit"><div class="num" id="d">--</div><div class="lab">Days</div></div>
     <div class="unit"><div class="num" id="h">--</div><div class="lab">Hrs</div></div>
     <div class="unit"><div class="num" id="m">--</div><div class="lab">Min</div></div>
     <div class="unit"><div class="num" id="s">--</div><div class="lab">Sec</div></div>
   </div>
-  <div class="partyMsg" id="partyMsg">🎤 IT'S GEM TIME 🎤</div>
-  <div class="when">FRIDAY · <span>JULY 31</span></div>
-  <div class="where">🏡 <b>The Cooper/Safer House</b><br>16 West Colmar Circle · 7PM 'til the break of dawn</div>
+  <div class="partyMsg" id="partyMsg">🎤 IT'S SHOWTIME 🎤</div>
 
-  <div class="btns">
+  <div class="when">FRIDAY · <span>JULY 31</span> · 7PM</div>
+  <div class="where"><b>The Cooper/Safer House</b> · 16 West Colmar Circle<br>7PM 'til the break of dawn</div>
+
+  <div class="btnrow">
     <a class="btn" href="sing.html"><span class="em">🎤</span> Sign up to sing</a>
-    <a class="btn alt" href="rsvp.html"><span class="em">💌</span> RSVP — who's coming</a>
-    <a class="btn alt" href="https://www.karafun.com/karaoke-song-list.html" target="_blank" rel="noopener noreferrer"><span class="em">🎵</span> Browse the song list</a>
+    <a class="btn alt" href="https://www.karafun.com/karaoke-song-list.html" target="_blank" rel="noopener noreferrer"><span class="em">🎵</span> Song catalog</a>
   </div>
+  <a class="btn alt full" href="rsvp.html"><span class="em">💌</span> RSVP — who's coming</a>
 
   <script>
     var TARGET = new Date('2026-07-31T19:00:00-04:00').getTime();
-    var d=document.getElementById('d'),h=document.getElementById('h'),m=document.getElementById('m'),s=document.getElementById('s'),c=document.getElementById('count').parentNode;
+    var d=document.getElementById('d'),h=document.getElementById('h'),m=document.getElementById('m'),s=document.getElementById('s');
     function pad(n){return (n<10?'0':'')+n;}
     var shell=document.querySelector('.shell'), done=false;
     function tick(){
