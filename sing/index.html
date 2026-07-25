@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Megan is in Town — Karaoke Party</title>
+<meta name="theme-color" content="#8a2be2">
+<meta property="og:title" content="Megan is in town">
+<meta property="og:description" content="It's a karaoke party. Friday, July 31 · 7:30PM · The Cooper/Safer House.">
+<meta property="og:image" content="https://cooptowntrain.github.io/gem/og-face.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="1200">
+<meta property="og:url" content="https://cooptowntrain.github.io/gem/sing/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cooptowntrain.github.io/gem/og-face.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{ --gold:#ffd24a; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{min-height:100%;overflow-x:hidden}
+  body{background:#8a2be2;font-family:'Poppins',system-ui,-apple-system,sans-serif;color:#fff;display:flex;justify-content:center;-webkit-text-size-adjust:100%}
+  .card{width:100%;max-width:460px;min-height:100svh;position:relative;overflow:hidden;display:flex;flex-direction:column;
+    background:linear-gradient(150deg,#ff2d95 0%,#8a2be2 46%,#22c9ff 100%)}
+  .blob{position:absolute;border-radius:50%;z-index:1;filter:blur(1px);opacity:.42}
+  .b1{width:180px;height:180px;background:radial-gradient(circle,#ff7ac1,transparent 70%);top:32%;right:-40px}
+  .b2{width:170px;height:170px;background:radial-gradient(circle,#5ce0ff,transparent 70%);bottom:44px;left:-46px}
+
+  .content{position:relative;z-index:3;flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;text-align:center;padding:22px 22px 10px}
+  .sp{flex:1 1 0;min-height:5px;max-height:26px}
+  .content>*{max-width:100%;overflow-wrap:break-word}
+
+  .eyebrow{font-size:12px;font-weight:700;letter-spacing:.24em}
+  .h1{font-weight:800;font-size:clamp(30px,8.6vw,42px);line-height:1.02;margin-top:6px;text-shadow:2px 3px 0 rgba(0,0,0,.18)}
+  .h2{font-weight:600;font-size:clamp(14px,4.2vw,17px);color:#0a0512;margin-top:7px}
+  .kara{font-weight:700;font-size:clamp(40px,10.8vw,52px);letter-spacing:.01em;line-height:1.02;margin-top:8px}
+
+  /* Whole Sing image, full width, soft-faded edges */
+  .singwrap{position:relative;width:calc(100% + 44px);max-width:none;margin-left:-22px;margin-right:-22px;line-height:0}
+  .singwrap img{width:100%;height:auto;display:block;
+    -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 96%,transparent 100%);
+    mask-image:linear-gradient(to bottom,transparent 0,#000 7%,#000 96%,transparent 100%)}
+  .karaover{position:absolute;left:0;right:0;bottom:3%;padding:6px 16px;text-align:center;z-index:2;line-height:1.03;
+    text-shadow:0 2px 12px rgba(0,0,0,.92),0 1px 4px rgba(0,0,0,.95),0 0 2px rgba(0,0,0,.9)}
+
+  .venuecard{width:100%;background:rgba(12,6,26,.42);border:1px solid rgba(255,255,255,.35);border-radius:18px;padding:13px 16px;backdrop-filter:blur(4px)}
+  .venue{font-weight:800;font-size:clamp(19px,5.4vw,24px);line-height:1.06}
+  .addr{font-weight:500;font-size:clamp(12px,3.7vw,14px);margin-top:3px;opacity:.95}
+  .time{font-weight:700;font-size:clamp(15px,4.5vw,18px);color:var(--gold);margin-top:6px}
+
+  .count{display:flex;gap:9px;justify-content:center}
+  .u{min-width:62px;padding:11px 6px;border-radius:14px;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.5)}
+  .num{font-weight:800;font-size:clamp(25px,7.4vw,31px);font-variant-numeric:tabular-nums;line-height:1}
+  .lab{font-size:9px;letter-spacing:.14em;font-weight:600;opacity:.9;margin-top:5px}
+  .partyMsg{display:none;font-weight:800;font-size:clamp(22px,6.6vw,30px)}
+  .go .count{display:none}.go .partyMsg{display:block}
+
+  .cat{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;font-size:14px;font-weight:700;
+    padding:11px 30px;border-radius:11px;min-height:44px;background:#fff;color:#0c0618;box-shadow:0 5px 14px rgba(0,0,0,.2);transition:transform .08s ease}
+  .cat:active{transform:scale(.98)}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+  <div class="card" id="card">
+    <div class="blob b1"></div><div class="blob b2"></div>
+    <div class="content">
+      <div class="eyebrow">🎤 YOU'RE INVITED</div>
+      <div class="h1">Megan is in town</div>
+      <div class="h2">and you know what that means…</div>
+
+      <div class="sp"></div>
+      <div class="singwrap"><img src="sing.png" alt="Sing characters"><div class="kara karaover">IT'S A KARAOKE PARTY</div></div>
+
+      <div class="sp"></div>
+      <div class="venuecard">
+        <div class="venue">The Cooper/Safer House</div>
+        <div class="addr">16 West Colmar Circle</div>
+        <div class="time">Friday, July 31 · 7:30PM</div>
+      </div>
+
+      <div class="sp"></div>
+      <div class="count" id="count" role="timer">
+        <div class="u"><div class="num" id="d">--</div><div class="lab">DAYS</div></div>
+        <div class="u"><div class="num" id="h">--</div><div class="lab">HRS</div></div>
+        <div class="u"><div class="num" id="m">--</div><div class="lab">MIN</div></div>
+        <div class="u"><div class="num" id="s">--</div><div class="lab">SEC</div></div>
+      </div>
+      <div class="partyMsg" id="partyMsg">🎤 IT'S SHOWTIME 🎤</div>
+
+      <div class="sp"></div>
+      <a class="cat" href="https://cooptowntrain.github.io/gem/catalog.pdf" target="_blank" rel="noopener noreferrer">🎵 Catalog</a>
+    </div>
+  </div>
+
+<script>
+  var TARGET=new Date('2026-07-31T19:30:00-04:00').getTime();
+  var d=document.getElementById('d'),hh=document.getElementById('h'),m=document.getElementById('m'),s=document.getElementById('s'),card=document.getElementById('card');
+  function pad(n){return (n<10?'0':'')+n;}
+  var done=false;
+  function tick(){
+    var diff=TARGET-Date.now();
+    if(diff<=0){ if(!done){done=true;card.classList.add('go');} return; }
+    d.textContent=Math.floor(diff/86400000);
+    hh.textContent=pad(Math.floor(diff%86400000/3600000));
+    m.textContent=pad(Math.floor(diff%3600000/60000));
+    s.textContent=pad(Math.floor(diff%60000/1000));
+  }
+  tick(); setInterval(tick,1000);
+</script>
+</body>
+</html>
